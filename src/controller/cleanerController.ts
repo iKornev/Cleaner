@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import Cleaner from "../models/Cleaner";
+import Cleaner from '../models/Cleaner';
+import Image from '../models/Image'
 import errors from '../errors/errors';
 
 export default class CleanerController {
@@ -56,5 +57,9 @@ export default class CleanerController {
     }
 
     response.status(201).json(cleaner);
+  }
+
+  async uploadImages(request: Request, response: Response) {
+    console.log(request.files);
   }
 }
