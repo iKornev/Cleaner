@@ -22,6 +22,9 @@ export default class CleanerRouter {
     this.router.put('/api/v1/cleaner/:id', admin, uploader.single('image'), this.cleanerController.uploadAvatar);
     this.router.get('/api/v1/cleaner', this.cleanerController.getCleaners);
     this.router.get('/api/v1/cleaner/:id', this.cleanerController.getCleaner);
+    this.router.post('/api/v1/cleaner/files', admin, uploader.fields([
+      { name: 'gallery', maxCount: 8 }
+    ]), this.cleanerController.uploadImages);
 
     return this.router
   }
